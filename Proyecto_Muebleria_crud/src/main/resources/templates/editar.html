@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Editar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+
+</head>
+<body class="fondo">
+	
+	
+<div class="Menu ">		
+		<div class="logo">
+			<img src="/img/logo_png.png" alt="logo">
+			<h1>Paradise</h1>
+		</div>
+		
+		<nav class="links">
+			<a th:href="@{/index}" class="btn btn-primary">Inicio</a>
+			<a th:href="@{/new}" class="btn btn-primary">Agregar Producto</a>
+			<a th:href="@{/listar}" class="btn btn-primary">Registros</a>
+		</nav>
+		
+		<div class="exit">
+				<a th:href="@{/login}" class="btn btn-danger">Cerrar Sesión</a>
+		</div>		
+	</div>
+	
+
+	
+	
+	
+	
+	
+	
+	<div class="container">
+    <div class="formulario">
+        <form th:action="@{/save}" th:object=${Productos} method="POST">
+            <div class="tarjeta">
+                <div class="encabezado">
+                    <h3>Editar Producto</h3>
+                </div>
+                <div class="cuerpo">
+                    <div class="form-group">
+                        <label>ID MUEBLE </label>
+                        <input th:field="*{idMueble}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>NOMBRE MUEBLE</label>
+                        <input th:field="*{nombreMueble}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>ID PROVEEDOR</label>
+                        <input th:field="*{idProveedor}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>IDCATEGORIA</label>
+                        <input th:field="*{idCategoria}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>UMEDIDA</label>
+                        <input th:field="*{umedida}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>PRECIO POR UNIDAD</label>
+                        <input th:field="*{precioUnidad}" type="text" class="form-control"/>
+                    </div>
+                    <div class="form-group">
+                        <label>Unidad en Existencia</label>
+                        <input th:field="*{unidadExistencia}" type="text" class="form-control"/>
+                    </div>
+                </div>
+                <div class="pie">
+                    <input type="submit" value="Guardar" class="boton-guardar">
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+	
+	<style>
+		
+		body.fondo {
+    margin: 0;
+    padding: 0;
+    background-image: url('/img/fondo.jpg'); /* Ruta a tu imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Para que la imagen de fondo no se desplace al hacer scroll */
+    color: white; /* Color de texto predeterminado en elementos hijos */
+    font-family: 'Arial', sans-serif; /* Cambia la fuente según tus preferencias */
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Centra verticalmente en la pantalla */
+}
+
+.formulario {
+    width: 100%;
+    max-width: 600px; /* Ancho máximo del formulario */
+}
+
+.tarjeta {
+    background-color: rgba(255, 255, 255, 0.9); /* Fondo semi-transparente de la tarjeta para resaltar sobre la imagen de fondo */
+    border: none; /* Sin bordes */
+    border-radius: 10px; /* Esquinas redondeadas */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.encabezado {
+    background-color: #007bff; /* Color de fondo para el encabezado de la tarjeta */
+    color: rgb(192, 192, 192);
+    padding: 10px;
+    text-align: center;
+    border-radius: 10px 10px 0 0; /* Esquinas redondeadas solo en la parte superior */
+}
+
+.cuerpo,
+.pie {
+    padding: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    color: black;
+}
+
+.boton-guardar {
+    background-color: #4caf50; /* Color verde para el botón de guardar */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+		*{
+			padding: 0;
+			margin: 0;
+			box-sizing: border-box;
+		}
+		
+				.Menu {
+    position: fixed;
+    
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    align-items: center;
+    background-color: #333; 
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    z-index: 1000; 
+}
+
+.logo{
+	display: flex;
+	align-items: center;
+    text-align: center;
+    align-items: center;
+    color: floralwhite;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+
+
+section h1{
+	font-size: 150px;
+	font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+.Menu .logo img {
+    max-width: 120px;
+}
+
+.Menu .links {
+	
+    display: flex;
+    gap: 20px;
+    margin-left: auto; 
+}
+
+.Menu .exit {
+    margin-left: auto; /* Empuja el botón de cerrar sesión hacia la derecha */
+}
+
+	</style>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+</body>
+</html>
